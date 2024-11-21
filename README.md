@@ -1,24 +1,126 @@
-O desenvolvimento de sistemas web eficazes e interativos é essencial para atender às crescentes demandas dos usuários e organizações. Um dos conceitos fundamentais nesse processo é o uso do CRUD, que representa a sigla para as quatro operações básicas: Criar (Create), Ler (Read), Atualizar (Update) e Excluir (Delete). O CRUD é uma abordagem que permite a interação com os dados em um sistema web de maneira simples e organizada.
+PROGRAMAÇÃO BACK-END (ADS6-EAD - 2/24ED)
 
-O Django, um popular framework de desenvolvimento web em Python, oferece uma base sólida para a criação de aplicativos web que implementam o CRUD de forma eficiente. O framework facilita a conexão com diversos Sistemas de Gerenciamento de Banco de Dados (SGBD), como PostgreSQL, MySQL, SQLite e outros, o que proporciona flexibilidade na escolha da tecnologia de armazenamento de dados mais adequada para o projeto.
+## **Controle de Equipamentos de TI**
 
-Neste contexto, seu objetivo nesta disciplina é desenvolver um aplicativo web que permita a execução das operações CRUD em um banco de dados, com pelo menos cinco campos de entrada de dados. O objetivo é proporcionar aos usuários a capacidade de inserir, visualizar, atualizar e excluir informações de maneira eficaz, além de disponibilizar o código-fonte no GitHub para avaliação.
+### **Descrição**
+O **Controle de Equipamentos de TI** é uma aplicação web desenvolvida com Django que permite gerenciar um inventário de equipamentos de TI. O sistema implementa funcionalidades de CRUD (Create, Read, Update, Delete) para facilitar o cadastro, consulta, atualização e exclusão de equipamentos como notebooks, monitores, impressoras, entre outros.
 
-O CRUD não é apenas um conceito-chave, mas uma funcionalidade essencial em muitos sistemas web, desde sistemas de gerenciamento de conteúdo e comércio eletrônico até aplicativos de gerenciamento de projetos. Com ele, os desenvolvedores têm a capacidade de criar, acessar, atualizar e excluir informações de maneira organizada, melhorando a usabilidade e a eficiência dos aplicativos web.
+---
 
-A implementação de um CRUD em um sistema web exige uma compreensão sólida dos princípios de desenvolvimento web, do framework escolhido (no caso, Django) e das melhores práticas de design de banco de dados. Além disso, é fundamental garantir a segurança e a integridade dos dados, para que os usuários possam confiar nas operações realizadas no aplicativo.
+### **Funcionalidades**
+- **Cadastrar Equipamentos**: Adicionar novos equipamentos ao inventário.
+- **Listar Equipamentos**: Visualizar todos os equipamentos cadastrados.
+- **Editar Equipamentos**: Atualizar informações dos equipamentos existentes.
+- **Excluir Equipamentos**: Remover equipamentos do sistema.
+- **Campos Disponíveis**:
+  - Nome do equipamento
+  - Descrição
+  - Número de patrimônio
+  - Data de aquisição
+  - Status (disponível, em uso, em manutenção, descartado)
 
-Neste projeto, a combinação do Django e de um SGBD de sua escolha, proporcionará a base sólida necessária para criar um aplicativo web interativo e eficiente que atende às operações CRUD. O objetivo é demonstrar como essas operações podem ser facilmente implementadas, permitindo que os desenvolvedores compreendam e apliquem esses conceitos essenciais em seus próprios projetos web.
+---
 
-Ao disponibilizar o código-fonte no GitHub, será possível compartilhar o conhecimento adquirido e permitir que outros desenvolvedores examinem e aprendam com o projeto. Isso promove a colaboração e a disseminação das melhores práticas no desenvolvimento de sistemas web.
+### **Tecnologias Utilizadas**
+- **Backend**: Django 4.x
+- **Frontend**: Bootstrap 5
+- **Banco de Dados**: SQLite (padrão do Django, mas pode ser configurado para outros bancos como PostgreSQL ou MySQL)
+- **Linguagem**: Python 3.x
 
-Regras e Valorização:
+---
 
-Este fórum vale 20 pontos;
-Serão distribuídos da seguinte maneira: 15,00 pontos site e pontualidade, 5,00 pontos para interação e comentários nas postagens dos colegas;
+### **Requisitos para Instalação**
+Certifique-se de que você tem os seguintes itens instalados:
+- Python 3.8 ou superior
+- Pip (gerenciador de pacotes do Python)
+- Virtualenv (opcional, para criar ambientes virtuais isolados)
 
-Você deverá participar do fórum até 22/11/2024.
-Você deverá interagir ao menos com duas respostas de seus colegas até dia 28/11/2024.
-Qualquer dúvida estou à disposição no fórum Tira-Dúvidas. 
+---
 
-Bons estudos!!!
+### **Como Instalar e Executar o Projeto**
+Siga os passos abaixo para configurar o projeto em sua máquina:
+
+1. **Clone o Repositório**:
+   ```bash
+   git clone https://github.com/seu-usuario/controle-equipamentos-ti.git
+   cd controle-equipamentos-ti
+   ```
+
+2. **Crie um Ambiente Virtual (Opcional, mas Recomendado)**:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # Linux/MacOS
+   venv\Scripts\activate  # Windows
+   ```
+
+3. **Instale as Dependências**:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **Execute as Migrações do Banco de Dados**:
+   ```bash
+   python manage.py makemigrations
+   python manage.py migrate
+   ```
+
+5. **Inicie o Servidor**:
+   ```bash
+   python manage.py runserver
+   ```
+   Acesse a aplicação no navegador: [http://127.0.0.1:8000](http://127.0.0.1:8000).
+
+---
+
+### **Como Usar**
+1. **Acessar a Aplicação**: Abra o navegador e acesse o link fornecido pelo servidor local.
+2. **Cadastrar Equipamentos**: Clique no botão **"Novo Equipamento"** e preencha as informações.
+3. **Editar ou Excluir Equipamentos**: Use os botões **"Editar"** ou **"Excluir"** na lista de equipamentos.
+
+---
+
+### **Estrutura de Arquivos**
+```plaintext
+controle-equipamentos-ti/
+├── app_crud/                # Aplicativo do Django que gerencia os equipamentos
+│   ├── migrations/          # Migrações do banco de dados
+│   ├── templates/           # Arquivos HTML
+│   ├── models.py            # Modelos de dados
+│   ├── views.py             # Lógica das páginas
+│   └── urls.py              # Rotas do app
+├── projeto_crud/            # Configurações do projeto Django
+│   ├── settings.py          # Configurações globais
+│   ├── urls.py              # Rotas do projeto
+│   └── wsgi.py              # Arquivo para o servidor web
+├── db.sqlite3               # Banco de dados SQLite (gerado após migração)
+├── manage.py                # Gerenciador de comandos do Django
+├── README.md                # Este arquivo
+├── requirements.txt         # Dependências do projeto
+└── venv/                    # Ambiente virtual (se criado)
+```
+
+---
+
+### **Contribuição**
+Contribuições são bem-vindas! Sinta-se à vontade para:
+- Reportar bugs
+- Sugerir melhorias
+- Criar pull requests
+
+---
+
+### **Licença**
+Este projeto é distribuído sob a licença MIT. Consulte o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+---
+
+### **Contato**
+Caso tenha dúvidas ou sugestões, entre em contato:
+- **Nome**: Felipe Gontijo
+- **E-mail**: [seu-email@example.com](mailto:seu-email@example.com)
+- **GitHub**: [Seu Perfil no GitHub](https://github.com/seu-usuario)
+
+---
+
+
+Se precisar de ajuda para personalizar ainda mais o README, me avise! 😊
